@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+void power1(int num, int powe, int& result);
+int main() 
+{
+    int num = 0,result = 0,powe = 0;
+   
+    cout << "Enter a number: ";
+    cin >> num;
+    cout << "Enter the power: ";
+    cin >> powe;
+    power1(num, powe, result);
+    cout << num << " raised to the power " << powe << " = " << result << endl;
+    return 0;
+}
+
+void power1(int num, int powe, int& result) 
+{
+    result = 1;
+    for (int i = 1; i <= powe; i++) 
+    {
+        result *= num;
+    }
+}
+

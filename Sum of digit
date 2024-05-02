@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+void digitsum(int num,int& sum);
+int main()
+{
+    int num = 0,sum=0;
+    
+    cout << "Enter a number: ";
+    cin >> num;
+    digitsum(num,sum);
+
+    cout << "the sum is " << sum;
+    return 0;
+}
+
+void digitsum(int num,int& sum)
+{
+    int digit = 0,i=0;
+    
+    while (num != 0)
+    {
+        digit = num % 10;
+        cout << digit << " ";
+        sum = sum + digit;
+        num = num / 10;
+    }
+   
+}
+

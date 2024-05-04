@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+void calculator() {
+    char op;
+    double num1, num2;
+
+    cout << "Enter Operator +,-,*,/:  ";
+    cin >> op;
+    cout << "Enter First Number:  ";
+    cin >> num1;
+    cout << "Enter Second Number:  ";
+    cin >> num2;
+
+    switch (op) {
+    case '+':
+        cout << num1 << " + " << num2 << " = " << num1 + num2;
+        break;
+    case '-':
+        cout << num1 << " - " << num2 << " = " << num1 - num2;
+        break;
+    case '*':
+        cout << num1 << " * " << num2 << " = " << num1 * num2;
+        break;
+    case '/':
+        cout << num1 << " / " << num2 << " = " << num1 / num2;
+        break;
+    default:
+        cout << "Invalid operator!";
+        break;
+    }
+}
+
+int main() {
+
+    calculator();
+    return 0;
+}

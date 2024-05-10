@@ -1,0 +1,77 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+bool readfromfileinarray(ifstream& input, int a[], int& s) {
+    if (input.is_open()) {
+       
+        input >> s;
+        for (int i = 0; i < s; i++) {
+            input >> a[i];
+        }
+        return true;
+    } else {
+        cout << "File Does Not Open ";
+        return false;
+    }
+}
+
+void sortArray(int arry[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (arry[j] < arry[j + 1]) {
+                swap(arry[j], arry[j + 1]);
+            }
+        }
+    }
+}
+
+void swap(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+void display(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+int stringlength(char name[]){
+    int length=0;
+    while(true){
+        if(name[length]=='\0'){
+            break;
+            
+        }
+        length++;
+    }
+    return length;
+
+}
+
+int main() {
+    ifstream in;
+    in.open("data10.txt");
+    int size=100;
+    int arr[size]; 
+    if (readfromfileinarray(in, arr, size)) {
+        cout << "Original Array: ";
+        display(arr, size);
+
+        sortArray(arr, size);
+
+        cout << "Sorted Array: ";
+        display(arr, size);
+    } else {
+        cout << "Function Not Run ";
+    }
+
+    char nam[]="Muhammad Raza";
+    cout<<"Length is: "<<stringlength(nam)<<endl;
+    
+
+    return 0;
+}

@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int lastdigit(int n){
+    return n%10;
+}
+int mltiplyby10(int n){
+    return n*10;
+}
+int sum(int a, int b){
+    return a+b;
+}
+int divideby10(int n){
+    return n/10;
+}
+int reversofanumber(int n){
+    int rev=0;
+    while(n!=0){
+        rev=sum(mltiplyby10(rev),  lastdigit(n));
+    }
+}
+
+
+
+int main(){
+    cout<<reversofanumber(123)<<endl;
+    return 0;
+}

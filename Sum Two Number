@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+void parameter(int num1, int num2) {
+    int sum;
+    sum = num1 + num2;
+    cout << "Sum: " << sum << endl;
+}
+
+int main() {
+    int a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+    parameter(a, b);
+    return 0;
+}

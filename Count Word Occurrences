@@ -1,0 +1,80 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int countWordOccurrences(const char* paragraph, const char* word) {
+    int count = 0;
+    
+    char lowerParagraph[1000]; 
+    char lowerWord[100]; 
+    int i = 0, j = 0;
+    while (paragraph[i] != '\0') {
+        lowerParagraph[i] = tolower(paragraph[i]);
+        i++;
+    }
+    lowerParagraph[i] = '\0'; 
+    i = 0;
+    while (word[i] != '\0') {
+        lowerWord[i] = tolower(word[i]);
+        i++;
+    }
+    lowerWord[i] = '\0'; 
+
+    i = 0;
+    size_t wordLen = strlen(word); 
+    
+    while (paragraph[i] != '\0') {
+        if (tolower(paragraph[i]) == lowerWord[0]) {
+            bool found = true;
+            for (int j = 1; j < wordLen; ++j) {
+                if (tolower(paragraph[i + j]) != lowerWord[j]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                count++;
+                i += wordLen; 
+            }
+            else {
+                i++; 
+            }
+        }
+        else {
+            i++;
+        }
+    }
+    return count;
+}
+
+int main() {
+    int inputFile = "data3.txt";
+    char paragraph[1000]; 
+    char wordToFind[100]; 
+
+    
+    ifstream inFile(inputFile);
+    if (inFile.is_open()) {
+        int i = 0;
+        char ch;
+        while (inFile.get(ch) && i < sizeof(paragraph) - 1) {
+            paragraph[i++] = ch;
+        }
+        paragraph[i] = '\0'; 
+        inFile.close();
+    }
+    else {
+        cerr << "Error opening file: " << inputFile << endl;
+        return 1;
+    }
+
+    
+    cout << "Enter the word you want to check: ";
+    cin.getline(wordToFind, sizeof(wordToFind) - 1); 
+   
+    int count = countWordOccurrences(paragraph, wordToFind);
+
+    cout << wordToFind << " is repeated " << count << " times." << endl;
+
+    return 0;
+}

@@ -17,7 +17,7 @@ int leg_cal(char a[]){
 int main(){
 
    char name[50]={};
-   cout<<"Enter Name: ";
+   cout<<"Enter String: ";
    cin>>name;
    cout<<"Length is: "<<leg_cal(name)<<endl;
 

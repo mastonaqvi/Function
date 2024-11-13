@@ -6,9 +6,9 @@ int main()
 {
     int num = 0,result = 0,powe = 0;
    
-    cout << "Enter a number: ";
+    cout << "Enter a Number: ";
     cin >> num;
-    cout << "Enter the power: ";
+    cout << "Enter the Power: ";
     cin >> powe;
     power1(num, powe, result);
     cout << num << " raised to the power " << powe << " = " << result << endl;

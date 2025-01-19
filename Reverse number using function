@@ -1,4 +1,5 @@
-#include <iostream>
+//Reverse Number using Function 
+#include <iostream> 
 using namespace std;
 
 int lastdigit(int n){

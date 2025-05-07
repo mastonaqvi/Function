@@ -1,4 +1,4 @@
-//Reverse Number using Function 
+// Reverse Number using Function 
 #include <iostream> 
 using namespace std;
 
